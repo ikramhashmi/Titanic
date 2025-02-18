@@ -4,4 +4,4 @@ class dataloader:
         pass
     def load_data(self,path):
         df=pd.read_csv(path)
-        retrun df
+        return df

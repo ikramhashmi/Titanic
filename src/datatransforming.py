@@ -1,11 +1,12 @@
 from .datacleaning import datacleaning
+import pandas as pd
 from sklearn.preprocessing import StandardScaler
 obj = datacleaning()
-df = obj.clean_data(df)
+df = obj.clean_data()
 class datatransform:
     def __init__(self):
         pass
-    def transform_data(self,df):
+    def transform_data(self):
         x=df.drop("Survived",axis=1)
         y=df["Survived"]
         cat=x.select_dtypes(object).columns
