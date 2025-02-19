@@ -8,5 +8,5 @@ class datacleaning:
     def clean_data(self,df = df):
         df.drop(["PassengerId","Name","Ticket","Cabin"],inplace=True,axis=1)
         df['Age'] = df['Age'].fillna(df['Age'].median()).astype(int)
-        df['Fare']=df['Fare'].fillna(df['Fare'].median())
+        df['Fare']=df['Fare'].fillna(df['Fare'].median()).astype(int)
         return df     

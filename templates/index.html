@@ -6,13 +6,29 @@
     <title>Titanic</title>
 </head>
 <body>
-    <form action="{{url_for('Home')}}",method="Post">
-        {% for i in columns %}
-        <label>{{i}}</label>
-        <input type="text" name="{{i}}">
-        {% endfor %}
+    <form action="{{url_for('Home')}}" method="Post">
+        <label for="name">Pclass</label>
+        <input type="text" name="Pclass"><br><br>
+
+        <label for="name">Sex</label>
+        <input type="text" name="Sex"><br><br>
+
+        <label for="name">Age</label>
+        <input type="text" name="Age"><br><br>
+
+        <label for="name">Parch</label>
+        <input type="text" name="Parch"><br><br>
+
+
+        <label for="name">Fare</label>
+        <input type="text" name="Fare"><br><br>
+
+        <label for="name">Embarked</label>
+        <input type="text" name="Embarked"><br><br>
+
         <button type="submit">Submit</button>
      </form>
+     <p>Hello, {{name}}</p>
     
 </body>
 </html>
