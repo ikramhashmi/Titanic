@@ -2,18 +2,17 @@ import joblib as j
 import pandas as pd
 
 sc=j.load("models/scaler.pkl")
-en=j.load("models/encoder.pkl")
 model = j.load("models/model.pkl")
 
 
+df=pd.read_csv("artifacts/cleaned.csv")
+data=df.drop(["PassengerId","Name","Ticket","Cabin"],inplace=True,axis=1)
+data=data.head(1).values
 
-def prediction(data, scaler=sc, encoder=en, model=model):
-    categorical_cols = select_dtypes(include=['object']).columns.tolist()
-    numerical_cols = select_dtypes(include=['number']).columns.tolist()
-
-    data[categorical_cols] = encoder.transform(data[categorical_cols])
-    data[numerical_cols] = scaler.transform(data[numerical_cols])
-    prediction = model.predict(data)
+def prediction(data=data,sc=sc,model=model):
+    data=sc.transform(data)
+    prediction=model.predict(data)
     return prediction
+
+print(prediction)
     
-print(prediction(data))

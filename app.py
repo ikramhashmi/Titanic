@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request
-from prediction import prediction
+
 
 
 
@@ -15,10 +15,10 @@ def Home():
         Fare=request.form['Fare']
         Embarked=request.form['Embarked']
         total=[Pclass,Sex,Age,SibSp,Parch,Fare,Embarked]
-        prediction(total)
+        
 
         
-        return render_template('index.html,name=total')
+        return render_template("index.html",name = total)
 
     return render_template("index.html",name='ikram')    
 if __name__ == "__main__":
